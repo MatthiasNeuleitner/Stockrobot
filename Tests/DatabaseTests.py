@@ -5,9 +5,7 @@ def main():
         db.insertNewColumn("Test","niceData INTEGER")
         db.dropTable("Test")
 
-        sd = StockData()
-        print(sd.getStockValueByDatePerMinute("2020-06-19 15:56","GOOGL"))
-
+        db.insertDataFromStock('GOOGL')
 
 if __name__ == "__main__":
     if __package__ is None:

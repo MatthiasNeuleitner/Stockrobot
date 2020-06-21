@@ -12,4 +12,12 @@ class StockData:
         data = json.loads(json.dumps(r.json()))
         return data['Technical Analysis: SMA'][date]['SMA']
     
-    
+    def getAllStockValueDataPerMinute(self,symbol):
+        r = requests.get('https://www.alphavantage.co/query?function=SMA&symbol='+symbol+'&interval=1min&time_period=50&series_type=open&apikey='+self.key)
+        data = json.loads(json.dumps(r.json()))
+        return data['Technical Analysis: SMA']
+
+    def getAllStockValueDataPerDay(self,symbol):
+        r = requests.get('https://www.alphavantage.co/query?function=SMA&symbol='+symbol+'&interval=daily&time_period=20&series_type=open&apikey='+self.key)
+        data = json.loads(json.dumps(r.json()))
+        return data['Technical Analysis: SMA']
